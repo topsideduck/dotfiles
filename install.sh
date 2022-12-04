@@ -51,10 +51,13 @@ hdiutil attach Amphetamine\ Enhancer.dmg
 cp -R /Volumes/Amphetamine\ Enhancer/Amphetamine\ Enhancer.app /Applications
 
 # Microsoft teams
-brew install microsoft-teams
+brew install --cask microsoft-teams
 
 # Transmission
 brew install --cask transmission
+
+# Spotify
+brew install --cask spotify
 
 # Raycast
 brew install --cask raycast

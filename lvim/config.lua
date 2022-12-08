@@ -1,7 +1,10 @@
 -- Neovim
 -- =========================================
 lvim.leader = " "
-lvim.colorscheme = "gruvbox" -- set to a custom theme
+vim.g.onedark_hide_endofbuffer = 1
+vim.g.onedark_termcolors = 256
+vim.g.onedark_terminal_italics = 1
+lvim.colorscheme = "onedark" -- set to a custom theme
 lvim.builtin.time_based_themes = false -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
@@ -150,3 +153,10 @@ require("user.autocommands").config()
 -- Additional Keybindings
 -- =========================================
 require("user.keybindings").config()
+
+-- Neovide
+vim.o.guifont = "JetbrainsMono Nerd Font Mono:h18"
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_cursor_antialiasing = true
+vim.g.neovide_cursor_vfx_mode = "railgun"
+vim.opt.clipboard = 'unnamedplus'

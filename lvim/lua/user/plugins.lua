@@ -20,6 +20,7 @@ M.config = function()
     {
       "gruvbox-community/gruvbox"
     },
+    { "joshdick/onedark.vim" },
     {
       "rose-pine/neovim",
       as = "rose-pine",

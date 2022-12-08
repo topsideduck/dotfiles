@@ -75,6 +75,7 @@ M.config = function()
       extra_args = { "--metrics", "off", "--exclude", "vendor", "--config", semgrep_rule_folder },
     },
     nls.builtins.diagnostics.shellcheck,
+    nls.builtins.diagnostics.flake8,
     nls.builtins.diagnostics.codespell,
     nls.builtins.diagnostics.jsonlint,
     nls.builtins.diagnostics.yamllint,

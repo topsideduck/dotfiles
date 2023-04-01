@@ -15,6 +15,10 @@ M.config = function()
     vim.opt.cmdheight = 0
     vim.opt.laststatus = 0
     vim.g.tpipeline_cursormoved = 1
+    -- HACK: lualine hijacks the statusline, so we need to set it back to what we want
+    if vim.env.TMUX then
+      vim.cmd [[ autocmd WinEnter,BufEnter,VimResized * setlocal laststatus=0 ]]
+    end
   end
   lvim.builtin.custom_web_devicons = true
   lvim.use_icons = false -- only set to false if you know what are you doing
@@ -41,8 +45,12 @@ M.config = function()
   lvim.builtin.python_programming.active = true
   lvim.builtin.web_programming.active = true
   lvim.builtin.rust_programming.active = true
+  lvim.builtin.cpp_programming.active = true
   lvim.builtin.borderless_cmp = true
   lvim.builtin.colored_args = true
+  lvim.builtin.inlay_hints.active = true
+  lvim.reload_config_on_save = false -- NOTE: i don't like this
+  lvim.builtin.mind.active = true
   -- require("lvim.lsp.manager").setup("prosemd_lsp", {})
 end
 

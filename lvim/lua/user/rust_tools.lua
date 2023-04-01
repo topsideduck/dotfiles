@@ -11,7 +11,7 @@ M.config = function()
       executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
       reload_workspace_from_cargo_toml = true,
       inlay_hints = {
-        auto = true,
+        auto = not lvim.builtin.inlay_hints.active,
         only_current_line = false,
         show_parameter_hints = true,
         parameter_hints_prefix = "<-",
@@ -39,6 +39,11 @@ M.config = function()
     server = {
       on_attach = require("lvim.lsp").common_on_attach,
       on_init = require("lvim.lsp").common_on_init,
+      settings = {
+        ["rust-analyzer"] = {
+          inlayHints = { locationLinks = false },
+        },
+      },
     },
   }
   local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/")

@@ -197,6 +197,7 @@ M.config = function()
   lvim.builtin.gitsigns.opts._threaded_diff = true
   lvim.builtin.gitsigns.opts._extmark_signs = true
   lvim.builtin.gitsigns.opts.current_line_blame_formatter = " <author>, <author_time> · <summary>"
+  lvim.builtin.gitsigns.opts.attach_to_untracked = false
 
   -- IndentBlankline
   -- =========================================
@@ -211,6 +212,12 @@ M.config = function()
     })
   end
 
+  if lvim.builtin.noice.active then
+    local status_ok, noice = pcall(require, "noice.lsp.hover")
+    if status_ok then
+      vim.lsp.handlers["textDocument/hover"] = noice.on_hover
+    end
+  end
   lvim.lsp.buffer_mappings.normal_mode["ga"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
   lvim.lsp.buffer_mappings.normal_mode["gI"] = {
     "<cmd>lua require('user.telescope').lsp_implementations()<CR>",
@@ -334,7 +341,6 @@ M.config = function()
   lvim.builtin.terminal.active = true
   lvim.builtin.terminal.execs = {}
   lvim.builtin.terminal.autochdir = true
-  lvim.builtin.terminal.open_mapping = nil
   lvim.builtin.terminal.size = vim.o.columns * 0.4
   lvim.builtin.terminal.on_config_done = function()
     M.create_terminal(2, "<c-\\>", 20, "float")
@@ -366,7 +372,6 @@ M.config = function()
       node_decremental = "<C-r>",
     },
   }
-  lvim.builtin.treesitter.indent = { enable = true, disable = { "yaml", "python" } } -- treesitter is buggy :(
   lvim.builtin.treesitter.matchup.enable = true
   -- lvim.treesitter.textsubjects.enable = true
   -- lvim.treesitter.playground.enable = true
@@ -566,6 +571,8 @@ M.config = function()
     end,
     find_command = { "fd", "--type=file", "--hidden" },
   }
+  lvim.builtin.telescope.pickers.buffers.sort_lastused = true
+  lvim.builtin.telescope.pickers.buffers.sort_mru = true
   lvim.builtin.telescope.on_config_done = function(telescope)
     telescope.load_extension "file_create"
     if lvim.builtin.file_browser.active then
@@ -768,10 +775,24 @@ M.lsp_on_attach_callback = function(client, _)
   }
   -- local opts = { noremap = true, silent = true }
   if client.name == "clangd" then
-    mappings["H"] = {
-      "<Cmd>ClangdSwitchSourceHeader<CR>",
-      "Swich Header/Source",
-    }
+    if lvim.builtin.cpp_programming.active then
+      mappings["H"] = {
+        "<Cmd>ClangdSwitchSourceHeader<CR>",
+        "Swich Header/Source",
+      }
+      mappings["lg"] = { "<cmd>CMakeGenerate<CR>", "Generate CMake" }
+      mappings["rm"] = { "<cmd>CMakeRun<CR>", "Run CMake" }
+      mappings["mm"] = { "<cmd>CMakeBuild<CR>", "Build CMake" }
+      mappings["dm"] = { "<cmd>CMakeDebug<CR>", "Debug CMake" }
+      mappings["ms"] = { "<cmd>CMakeSelectBuildType<CR>", "Select Build Type" }
+      mappings["mt"] = { "<cmd>CMakeSelectBuildTarget<CR>", "Select Build Target" }
+      mappings["rt"] = { "<cmd>CMakeSelectLaunchTarget<CR>", "Select Launch Target" }
+      mappings["lo"] = { "<cmd>CMakeOpen<CR>", "Open CMake Console" }
+      mappings["lc"] = { "<cmd>CMakeClose<CR>", "Close CMake Console" }
+      mappings["mi"] = { "cmd>CMakeInstall<cr>", "Install CMake Targets" }
+      mappings["mc"] = { "<cmd>CMakeClean<CR>", "Clean CMake Targets" }
+      mappings["rc"] = { "<cmd>CMakeStop<CR>", "Stop CMake" }
+    end
   elseif client.name == "gopls" then
     mappings["H"] = {
       "<Cmd>lua require('lvim.core.terminal')._exec_toggle({cmd='go vet .;read',count=2,direction='float'})<CR>",

@@ -37,6 +37,7 @@ exceptions:
   - CNAME
   - CONOP
   - CORE
+  - CORS
   - CPU
   - CRIME
   - CSPM
@@ -87,10 +88,12 @@ exceptions:
   - GPL
   - GPU
   - GUI
+  - GUID
   - HAML
   - HDD
   - HEAD
   - HIPAA
+  - HMAC
   - HMP
   - HSTS
   - HTML
@@ -189,6 +192,7 @@ exceptions:
   - SLA
   - SMS
   - SMTP
+  - SOAP
   - SOAR
   - SOC
   - SOP
@@ -209,6 +213,7 @@ exceptions:
   - SYN
   - TBA
   - TCP
+  - TEE
   - TIFF
   - TIP
   - TLD
@@ -231,6 +236,7 @@ exceptions:
   - VPN
   - WAF
   - WIP
+  - WSDL
   - WSL
   - XDR
   - XML

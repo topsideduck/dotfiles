@@ -132,6 +132,7 @@ Immer
 Ingress
 Inode
 Istio
+JSONP
 Jaeger
 JavaScript
 Javafuzz
@@ -149,6 +150,7 @@ Keycloak
 Keymap
 Kibana
 Kinesis
+Kiterunner
 Klar
 Knative
 Kramdown
@@ -319,6 +321,7 @@ approvers
 architected
 architecting
 archiver
+asnmap
 auditability
 autocommands
 autocomplete
@@ -400,6 +403,7 @@ crontabs
 crosslinked
 crosslinking
 crosslinks
+crt
 cyber
 cybersecurity
 datasource
@@ -434,6 +438,8 @@ dirsearch
 disambiguates
 discoverability
 dismissable
+dnsgen
+dnsx
 dogfood
 dogfooding
 dogfoods
@@ -454,6 +460,7 @@ falsy
 fastlane
 favicon
 favorited
+ffuf
 filetype
 filetypes
 firewalled
@@ -462,12 +469,14 @@ formatters
 ftdetect
 ftplugin
 fuzzer
+gau
 gb
 gettext
 gitlabsos
 gitrob
 globals
 gobuster
+golang
 goroutine
 goroutines
 goto
@@ -485,6 +494,7 @@ hotfixes
 hotfixing
 http
 https
+httpx
 idempotence
 idmapper
 inclusivity
@@ -495,6 +505,7 @@ innersourcing
 interdependencies
 interdependency
 interruptible
+ipinfo
 irker
 issuables
 jQuery
@@ -507,12 +518,14 @@ jumplist
 kanban
 kanbans
 kaniko
+katana
 keyhacks
 keyset
 keyspace
 keytab
 keytabs
 kubectl
+kubelet
 kubernetes
 lang
 ldapsearch
@@ -565,6 +578,7 @@ monorepo
 monorepos
 multiline
 mutex
+naabu
 nameserver
 nameservers
 namespace
@@ -574,6 +588,7 @@ namespacing
 namespacings
 negatable
 neovim
+nginx
 nmap
 noteable
 noteables
@@ -588,6 +603,7 @@ offboarding
 offboards
 onboarding
 onedarker
+openjdk
 parallelization
 parallelizations
 paravirtualization
@@ -604,6 +620,7 @@ polyfill
 polyfills
 pooler
 postfixed
+postgres
 postgres.ai
 precompile
 precompiled
@@ -737,6 +754,7 @@ stylelint
 subbrute
 subchart
 subcharts
+subfinder
 subfolder
 subfolders
 subgraph
@@ -767,6 +785,7 @@ subtest
 subtests
 subtree
 subtrees
+subzy
 sudo
 supercookie
 supercookies
@@ -792,6 +811,7 @@ timeboxes
 timeboxing
 timecop
 tiptap
+tlsx
 tmux
 tmux
 todo
@@ -817,6 +837,7 @@ triages
 triaging
 truffleHog
 truthy
+ubuntu
 ui
 unapplied
 unapprove
@@ -935,6 +956,8 @@ webpack
 webserver
 websocket
 websockets
+wfuzz
+whatweb
 whitepaper
 whitepapers
 wireframe

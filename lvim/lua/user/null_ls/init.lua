@@ -80,6 +80,7 @@ M.config = function()
       extra_args = { "--metrics", "off", "--exclude", "vendor", "--config", semgrep_rule_folder },
     },
     nls.builtins.diagnostics.ruff,
+    nls.builtins.diagnostics.cppcheck,
     nls.builtins.diagnostics.yamllint,
     nls.builtins.diagnostics.shellcheck,
     nls.builtins.diagnostics.codespell,
